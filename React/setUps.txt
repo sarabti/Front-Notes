@@ -1,0 +1,15 @@
+Make Sure to add these besides eslint to your project:
+
+> npm i eslint-plugin-react-hooks
+> npm i eslint-config-react-app
+
+Turns off all rules that are unnecessary or might conflict with Prettier:
+
+> npm install --save-dev eslint-config-prettier
+
+If you want to enforce that files are formatted before a pull request is merged, use:
+> prettier --check
+for your continuous integration.
+
+Typescript:
+> npm i @types/react @types/react-dom
