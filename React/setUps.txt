@@ -1,15 +1,46 @@
 Make Sure to add these besides eslint to your project:
 
-> npm i eslint-plugin-react-hooks
-> npm i eslint-config-react-app
+# npm i eslint-plugin-react-hooks
+# npm i eslint-config-react-app
 
 Turns off all rules that are unnecessary or might conflict with Prettier:
 
-> npm install --save-dev eslint-config-prettier
+# npm install --save-dev eslint-config-prettier
 
 If you want to enforce that files are formatted before a pull request is merged, use:
-> prettier --check
+# prettier --check
 for your continuous integration.
 
+
 Typescript:
-> npm i @types/react @types/react-dom
+# npm i @types/react @types/react-dom
+> const [state, dispatch] = useReducer<State>(stateReducer, initialState);
+Links:
+https://react-typescript-cheatsheet.netlify.app/
+
+
+Compiler: (Only in Beta)
+React Compiler automatically memoizes your code.
+The compiler uses its knowledge of JavaScript and React’s rules to automatically memoize values or groups of values within your components and hooks. 
+
+# npm install -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
+
+Expensive calculations also get memoized
+React Compiler only memoizes React components and hooks, not every function
+React Compiler’s memoization is not shared across multiple components or hooks
+
+The ESLint plugin can be used independently of the compiler
+
+# npm install -D eslint-plugin-react-compiler@beta
+
+Then, add it to your ESLint config:...
+To adopt the compiler successfully on existing projects, we recommend running it on a small directory in your product code first:
+```
+const ReactCompilerConfig = {
+  sources: (filename) => {
+    return filename.indexOf('src/path/to/dir') !== -1;
+  },
+};
+```
+Using React Compiler with React 17 or 18:
+https://react.dev/learn/react-compiler#using-react-compiler-with-react-17-or-18
