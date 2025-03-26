@@ -1,27 +1,3 @@
-Hooks:
-
-useContext():
-The useContext Hook is a technique for passing data down the component tree without having to pass props through components.
-You need to eliminate the | null in the type for context consumers.
-Our recommendation is to have the Hook do a runtime check for it’s existence and throw an error when not present:
-```
-const useGetComplexObject = () => {
-  const object = useContext(Context);
-  if (!object) { throw new Error("useGetComplexObject must be used within a Provider") }
-  return object;
-}
-```
-
-useCallback():
-When working in TypeScript strict mode useCallback requires adding types for the parameters in your callback.
-This is because the type of the callback is inferred from the return value of the function, and without parameters the type cannot be fully understood.
-```
-const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>((event) => {
-  setValue(event.currentTarget.value);
-}, [setValue])
-```
-
-
 TypeScript:
 
 DOM Events:

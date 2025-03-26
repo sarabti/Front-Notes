@@ -1,0 +1,51 @@
+** Condition:
+
+'if' does not work inside JSX
+```
+let content;
+if (isLoggedIn) {
+  content = <AdminPanel />;
+} else {
+  content = <LoginForm />;
+}
+return (
+  <div>
+    {content}
+  </div>
+);
+```
+But ?: works
+```
+<div>
+  {isLoggedIn ? (
+    <AdminPanel />
+  ) : (
+    <LoginForm />
+  )}
+</div>
+```
+
+<li> has key
+```
+<li key={product.id}>
+  {product.title}
+</li>
+```
+
+You can respond to events by declaring event handler functions inside your components:
+```
+function MyButton() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
+```
+
+Hooks are more restrictive than other functions.
+You can only call Hooks at the top of your components (or other Hooks)
